@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="820.0" stylesheets="@css/login.css" xmlns="http://javafx.com/javafx/22" fx:controller="org.yesserm.controller.UserController" xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                    <children>
+                        <Button fx:id="btnPost" onAction="#testPost" mnemonicParsing="false" prefHeight="63.0" prefWidth="231.0" text="Post" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                    <children>
+                        <Label layoutX="68.0" layoutY="86.0" text="Usuario">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtuser" layoutX="173.0" layoutY="83.0" prefHeight="26.0" prefWidth="295.0" />
+                        <Label layoutX="70.0" layoutY="168.0" text="Clave">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtpass" layoutX="175.0" layoutY="165.0" prefHeight="26.0" prefWidth="295.0" />
+                    </children>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" layoutX="150.0" layoutY="300.0">
+                        <children>
+                            <Button fx:id="btnlogin" onAction="#loginUser" mnemonicParsing="false" prefHeight="63.0" prefWidth="231.0" text="Login"/>
+                        </children>
+                    </AnchorPane>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </center>
+    <top>
+        <Label fx:id="lbwelcome" text="Bienvenido a mi App" BorderPane.alignment="CENTER">
+            <font>
+                <Font size="23.0" />
+            </font>
+        </Label>
+    </top>
+</BorderPane>

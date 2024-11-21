@@ -19,7 +19,7 @@ public class HibernateUtil {
                         .buildSessionFactory();
                 logger.log(Level.INFO, "SessionFactory created");
             } catch (HibernateException e) {
-                e.fillInStackTrace();
+                e.printStackTrace();
                 if(sessionFactory != null) {
                     sessionFactory.close();
                 }

@@ -1,12 +1,26 @@
 package org.yesserm.service;
 
+import org.hibernate.SessionFactory;
+import org.yesserm.dao.GenericDAOImpl;
+import org.yesserm.dao.IGenericDAO;
+
 import java.util.List;
 import java.util.Map;
 
-public class IGenericServiceImpl<T> implements IGenericService<T> {
+public class GenericServiceImpl<T> implements IGenericService<T> {
+    private final IGenericDAO<T> dao;
+    private final Class<T> cl;
+    SessionFactory session;
+
+    public GenericServiceImpl(Class<T> cl, SessionFactory sessionFactory) {
+        this.cl = cl;
+        dao = new GenericDAOImpl<>(cl, sessionFactory);
+        session = sessionFactory;
+    }
+
     @Override
     public List<T> findAll() {
-        return List.of();
+        return dao.query("from "+cl.getSimpleName(),null);
     }
 
     @Override
@@ -26,7 +40,7 @@ public class IGenericServiceImpl<T> implements IGenericService<T> {
 
     @Override
     public T save(T object) {
-        return null;
+        return dao.save(object);
     }
 
     @Override
@@ -41,6 +55,6 @@ public class IGenericServiceImpl<T> implements IGenericService<T> {
 
     @Override
     public List<T> query(String hsql, Map<String, Object> params) {
-        return List.of();
+        return dao.query(hsql, params);
     }
 }

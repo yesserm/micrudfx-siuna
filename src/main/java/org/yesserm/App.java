@@ -5,8 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.yesserm.entity.Post;
-import org.yesserm.entity.User;
 
 import java.io.IOException;
 
@@ -19,17 +17,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("primary"), 800, 500);
         stage.setScene(scene);
         stage.show();
-
-        User nuevoUsuario = new User("yesser", "1234");
-        System.out.println(nuevoUsuario);
-
-        Post nuevoPost = new Post("Hola Mundo", "Este es mi primer post");
-        nuevoPost.setUser(nuevoUsuario);
-
-        System.out.println(nuevoPost);
     }
 
     static void setRoot(String fxml) throws IOException {
